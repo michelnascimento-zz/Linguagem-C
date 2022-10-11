@@ -37,7 +37,7 @@ void Sorteio(char **nomes, int *tam)
 
 void Menu()
 {
-    printf("Opcao\n1 - Sortear.\n2 - Sair.");
+    printf("Opcao\n1 - Gravar Nomes\n2 - Sortear.\n3 - Sair.");
 }
 
 int main()
@@ -46,9 +46,7 @@ int main()
 
     int *tam = malloc(sizeof(int));
     char **nomes = calloc(3, sizeof(char *));
-    Quantidade(tam);
-    Gravar(nomes, tam);
-    
+
     for (;;)
     {
         Menu();
@@ -56,10 +54,14 @@ int main()
         switch (op)
         {
         case 1:
-            Sorteio(nomes, tam);
+            Quantidade(tam);
+            Gravar(nomes, tam);
             break;
         case 2:
-            puts("\n\nSaindo...\n");
+            Sorteio(nomes, tam);
+            break;
+        case 3:
+            puts("\n\nSaindo...");
             exit(0);
         default:
             puts("opcao invalida.\n");
